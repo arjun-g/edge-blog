@@ -505,3 +505,7 @@ h2 {
 .image-block {
   margin: 12px 0;
 }
+
+.post-content .image em{
+    font-size: 1.4rem;
+}

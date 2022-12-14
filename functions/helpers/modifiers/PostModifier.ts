@@ -32,7 +32,7 @@ export class PostModifier extends BaseModifier {
                     convertedHtml += "<hr />";
                     break;
                 case "image":
-                    convertedHtml += `<div class="image image-block"><img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em></div>`;
+                    convertedHtml += `<div class="image image-block"><img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" alt="${block.data.caption}" /><br /><em>${block.data.caption}</em></div>`;
                     break;
                 case "list":
                     convertedHtml += `<ul>${block.data.items.map(item => `<li>${item}</li>`).join("")}</ul>`;
@@ -46,7 +46,7 @@ export class PostModifier extends BaseModifier {
                 case "carousel":
                     convertedHtml += `<div class="carousel glider-contain">
                         <div class="glider">
-                            ${block.data.map(file => `<div class="image"><img src="${file.url}" /><br /><em>${file.caption}</em></div>`).join("")}
+                            ${block.data.map(file => `<div class="image"><img src="${file.url}" title="${file.caption}" alt="${file.caption}" /><br /><em>${file.caption}</em></div>`).join("")}
                         </div>
                         <button aria-label="Previous" class="glider-prev">«</button>
                         <button aria-label="Next" class="glider-next">»</button>
