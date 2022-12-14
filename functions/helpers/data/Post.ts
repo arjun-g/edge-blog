@@ -119,6 +119,12 @@ export class Post extends Base {
         return await this.loadList(posts);
     }
 
+    async getByTag(Tag: string) : Promise<Array<Post>>{
+        const stmt = this.db.prepare(`SELECT * FROM eb_post_published INNER JOIN eb_post_tag ON eb_post_published.ID = eb_post_tag.PostID where eb_post_tag.Tag = ?1`).bind(Tag);
+        const posts = (await stmt.all<Post>()).results;
+        return await this.loadList(posts);
+    }
+
     async search(text: string): Promise<Array<Post>>{
         const stmt = this.db.prepare(`SELECT * FROM eb_post_search WHERE eb_post_search MATCH ?1`).bind(text);
         let posts = (await stmt.all<Post>()).results;
