@@ -13,7 +13,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     return new HTMLRewriter()
         .on("#sidebar", new SidebarModifier(context))
         .on("#content", new PostModifier(context, post))
-        .on("meta[property]", new PostMetaModifier(context, post))
+        .on("meta[property],meta[name]", new PostMetaModifier(context, post))
         .on("title", new TitleModifier(post.Title))
         .transform(resp.clone());
 }

@@ -31,6 +31,11 @@ constructor(context: EventContext<Env, any, Record<string, unknown>>, post: Post
             element.setAttribute("content", `${this.context.env.WEBSITE_ORIGIN}/media/${this.post.BannerID}`);
             break;
     }
+    switch(element.getAttribute("name")){
+        case "description":
+            element.setAttribute("content", this.post.Excerpt);
+            break;
+    }
   }
 
 }
