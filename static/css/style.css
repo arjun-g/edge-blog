@@ -509,3 +509,8 @@ h2 {
 .post-content .image em{
     font-size: 1.4rem;
 }
+
+.post-content a{
+    text-decoration: underline;
+    color: var(--accent-color);
+}
