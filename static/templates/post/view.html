@@ -1,0 +1,43 @@
+<article class="post">
+    <div class="banner" style="display: {SHOW_BANNER};">
+        <img src="{BANNER_IMAGE}" />
+    </div>
+    <div class="category">{CATEGORY}</div>
+    <h1>{TITLE}</h1>
+    <span class="date">{PUBLISHED_DATE}</span>
+    <div id="tags" class="tags">
+        {TAGS}
+    </div>
+    <div class="post-content">
+        {CONTENT}
+    </div>
+    <div id="disqus_thread"></div>
+</article>
+<script>
+    const contentarea = document.querySelector(".post-content");
+    const code = contentarea.querySelector("pre>code");
+    if(code){
+        const script = document.createElement("script");
+        script.src = "/js/highlight.min.js";
+        script.onload = () => {
+            hljs.highlightAll();
+        };
+        document.body.appendChild(script);
+    }
+    const script = document.createElement("script");
+    script.src = "/js/glider.min.js";
+    script.onload = () => {
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            new Glider(carousel.querySelector(".glider"), {
+                slidesToShow: 1,
+                dots: carousel.querySelector(".dots"),
+                draggable: true,
+                arrows: {
+                    prev: carousel.querySelector(".glider-prev"),
+                    next: carousel.querySelector(".glider-next")
+                }
+            });
+        });
+    };
+    document.body.appendChild(script);
+</script>

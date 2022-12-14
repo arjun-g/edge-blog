@@ -1,0 +1,10 @@
+:root {
+    --accent-color: #244cea;
+    --page-bg: #F5F8FA;
+  --card-bg: #FFFFFF;
+  --primary-text-color: #3F4448;
+  --secondary-text-color: #7F909D;
+  --border-line: 1px solid var(--page-bg);
+  --font-family: 'Quicksand', sans-serif;
+  --box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
+}

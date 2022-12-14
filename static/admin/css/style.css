@@ -1,0 +1,52 @@
+@import url("../../css/color.css");
+@import url("../../css/reset.css");
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    display: flex;
+    font-family: "Inter", sans-serif !important;
+    font-size: 10px;
+}
+
+#frame{
+    flex: 1 1 100%;
+    background-color: var(--page-bg);
+    display: flex;
+    height: 100%;
+    overflow-y: auto;
+    flex-direction: column;
+}
+
+#editor{
+    background-color: white;
+}
+
+.ce-block__content, 
+.ce-toolbar__content {
+    max-width: 900px;
+}
+
+#editor{
+    background-color: white;
+    width: 100%;
+    max-width: 900px;
+    padding: 8px 16px;
+    margin: 0 auto;
+}
+.title-editor{
+    font-size: 40px;
+    font-weight: 700;
+    padding: 24px 24px;
+    border: none;
+    outline: none;
+    padding-bottom: 0;
+    width: 100%;
+}

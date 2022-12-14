@@ -1,0 +1,15 @@
+account_id=
+[[ d1_databases ]]
+binding = "DB"
+database_name = "BLOG_DB"
+database_id = 
+[[r2_buckets]]
+binding = "STATIC"
+preview_bucket_name = 
+bucket_name = 
+[vars]
+WEBSITE_ORIGIN = "http://localhost"
+[env.production.vars]
+WEBSITE_ORIGIN = "https://arjun-g.com"
+ACCESS_DOMAIN = 
+ACCESS_AUD = 

@@ -1,0 +1,50 @@
+<section id="sidebar">
+    <div class="topnav">
+        <button class="icon-button" id="closesidebar"><span class="material-symbols-rounded">
+            close
+        </span></button>
+    </div>
+    <div class="card search">
+        <form action="/search">
+            <input id="search" name="search" type="search" placeholder="Search the blog" />
+        </form>
+    </div>
+    <div class="profile card">
+        <div class="image">
+            <img src="/img/face.jpeg" alt="Arjun Ganesan's Profile Image" height="140" width="140" />
+        </div>
+        <a class="name" href="/"><span class="first">Arjun</span> Ganesan</a>
+        <a href="https://kissflow.com/" class="bio plain-link" target="_blank">
+            Senior Architect, Kissflow
+        </a>
+        <div class="awards">
+            <!-- <a class="award" href="https://test.com"> Alexa Champion </a> -->
+        </div>
+        <div class="links border-top">
+            <a href="https://github.com/arjun-g" class="github" target="_blank">
+                <img src="/img/github.svg" alt="GitHub Icon" height="24" width="24" />
+            </a>
+            <a href="https://twitter.com/arjun_g" class="twitter" target="_blank">
+                <img src="/img/twitter.svg" alt="Twitter Icon" height="24" width="24" />
+            </a>
+            <a href="https://www.linkedin.com/in/garjun" class="linkedin" target="_blank">
+                <img src="/img/linkedin.svg" alt="LinkedIn Icon" height="24" width="24" />
+            </a>
+            <a href="https://codepen.io/arjun_g" class="codepen" target="_blank">
+                <img src="/img/codepen.svg" alt="Codepen Icon" height="24" width="24" />
+            </a>
+        </div>
+    </div>
+    <div class="card link-list">
+        <span class="title">My Works</span>
+        <ul id="linklist"></ul>
+    </div>
+    <div class="card link-list">
+        <span class="title">Category</span>
+        <ul id="categorylist"></ul>
+    </div>
+</section>
+<script>
+    const text = new URL(window.location.href).searchParams.get("search");
+    document.getElementById("search").value = text;
+</script>

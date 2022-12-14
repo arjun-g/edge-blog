@@ -1,0 +1,35 @@
+{
+  "name": "edge-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "wrangler pages dev static --local --persist",
+    "create-db": "wrangler d1 create BLOG_DB",
+    "init-local-db": "wrangler d1 execute BLOG_DB --local --file=./db/setup.sql",
+    "init-prod-db": "wrangler d1 execute BLOG_DB --file=./db/setup.sql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arjun-g/edge-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arjun-g/edge-blog/issues"
+  },
+  "homepage": "https://github.com/arjun-g/edge-blog#readme",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20221111.1",
+    "@databases/split-sql-query": "^1.0.3",
+    "@databases/sql": "^3.2.0",
+    "better-sqlite3": "^7.6.2",
+    "typescript": "^4.9.3",
+    "wrangler": "^0.0.0-c6d9ae97"
+  },
+  "dependencies": {
+    "@cloudflare/pages-plugin-cloudflare-access": "^1.0.2",
+    "dayjs": "^1.11.6"
+  }
+}
