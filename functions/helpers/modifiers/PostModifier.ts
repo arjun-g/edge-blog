@@ -32,7 +32,7 @@ export class PostModifier extends BaseModifier {
                     convertedHtml += "<hr />";
                     break;
                 case "image":
-                    convertedHtml += `<div class="image"><img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em></div>`;
+                    convertedHtml += `<div class="image image-block"><img class="img-fluid" src="${block.data.file.url}" title="${block.data.caption}" /><br /><em>${block.data.caption}</em></div>`;
                     break;
                 case "list":
                     convertedHtml += `<ul>${block.data.items.map(item => `<li>${item}</li>`).join("")}</ul>`;
