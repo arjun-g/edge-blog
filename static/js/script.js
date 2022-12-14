@@ -1,3 +1,5 @@
+let initialized = false;
+
 function initSidebarHamburger() {
   const opensidebar = document.getElementById("opensidebar");
   const closesidebar = document.getElementById("closesidebar");
@@ -56,11 +58,24 @@ function loadScriptAndStyles() {
   })();
 }
 if (document.readyState === "complete") {
-  loadScriptAndStyles();
-  initSidebarHamburger();
+    if(!initialized){
+        initialized = true;
+        loadScriptAndStyles();
+        initSidebarHamburger();
+    }
 } else {
   window.addEventListener("DOMContentLoaded", () => {
-    loadScriptAndStyles();
-    initSidebarHamburger();
+    if(!initialized){
+        initialized = true;
+        loadScriptAndStyles();
+        initSidebarHamburger();
+    }
   });
+  window.onload = () => {
+    if(!initialized){
+        initialized = true;
+        loadScriptAndStyles();
+        initSidebarHamburger();
+    }
+  }
 }
