@@ -10,9 +10,8 @@ export class LinkListModifier extends BaseModifier {
       "/templates/link/item"
     );
 
-    const link = new Link(this.context.env.DB);
-    const links = await link.getAll();
-
+    const links = await this.getCached<Array<Link>>("/obj/links/withcount", await (new Link(this.context.env.DB)).getAll());
+    
     const linkListHTML = linkTemplate.replace(
       "{LINK_LIST}",
       links

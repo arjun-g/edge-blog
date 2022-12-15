@@ -12,7 +12,9 @@ export class CategoryModifier extends BaseModifier {
     );
 
     const category = new Category(this.context.env.DB);
-    const categories = await category.getAllWithCount();
+    const categories = await this.getCached<Array<Category>>("/obj/categories/withcount",  await category.getAllWithCount());
+
+    console.log("GETR", categories, categoryItemTemplate);
 
     const categoryListHTML = categoryTemplate.replace(
       "{CATEGORY_LIST}",
@@ -25,6 +27,8 @@ export class CategoryModifier extends BaseModifier {
         )
         .join("")
     );
+
+    console.log("HTML", categoryListHTML);
     element.replace(categoryListHTML, { html: true });
   }
 }

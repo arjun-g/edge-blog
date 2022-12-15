@@ -1,3 +1,5 @@
+import { clearCache, getCached } from "../utils";
+
 export class BaseModifier{
 
     context: EventContext<Env, any, Record<string, unknown>> = null;
@@ -24,6 +26,14 @@ export class BaseModifier{
         const dateObj = new Date(date);
         const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         return `${months[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`;
+    }
+
+    async getCached<T>(path, data): Promise<T>{
+        return getCached<T>(this.context, path, data);
+    }
+
+    async clearCache(path){
+        await clearCache(this.context, path);
     }
 
 }
