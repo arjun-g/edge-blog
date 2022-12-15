@@ -12,7 +12,9 @@ export class CategoryModifier extends BaseModifier {
     );
 
     const category = new Category(this.context.env.DB);
-    const categories = await this.getCached<Array<Category>>("/obj/categories/withcount",  await category.getAllWithCount());
+    const categories = await this.getCached<Array<Category>>("/obj/categories/withcount",  async () => {
+      return await category.getAllWithCount()
+    });
 
     console.log("GETR", categories, categoryItemTemplate);
 
