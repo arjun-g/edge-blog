@@ -1,4 +1,4 @@
-import { clearCache, getCached } from "../utils";
+import { clearCache, getCachedData } from "../utils";
 
 export class BaseModifier{
 
@@ -28,8 +28,8 @@ export class BaseModifier{
         return `${months[dateObj.getMonth()]} ${dateObj.getDate()}, ${dateObj.getFullYear()}`;
     }
 
-    async getCached<T>(path, data): Promise<T>{
-        return getCached<T>(this.context, path, data);
+    async getCachedData<T>(path, data): Promise<T>{
+        return getCachedData<T>(this.context, path, data);
     }
 
     async clearCache(path){

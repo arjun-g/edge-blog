@@ -7,7 +7,7 @@ export async function asHTMLResponse(resp: Response){
     });
 }
 
-export async function getCached<T>(context: EventContext<Env, any, any>, path, dataFunc): Promise<T>{
+export async function getCachedData<T>(context: EventContext<Env, any, any>, path, dataFunc): Promise<T>{
     const url = new URL(context.request.url);
     const cacheKey = new Request(`${url.origin}${path}`);
     const cache = caches.default;
@@ -24,7 +24,7 @@ export async function getCached<T>(context: EventContext<Env, any, any>, path, d
                 "Cache-Control": "s-maxage=10000"
             }
         });
-        await cache.put(cacheKey, newresp);
+        context.waitUntil(cache.put(cacheKey, newresp));
         return data;
     }
 }

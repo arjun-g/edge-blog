@@ -10,7 +10,7 @@ export class LinkListModifier extends BaseModifier {
       "/templates/link/item"
     );
 
-    const links = await this.getCached<Array<Link>>("/obj/links/withcount", async () => {
+    const links = await this.getCachedData<Array<Link>>("/obj/links/withcount", async () => {
       return await (new Link(this.context.env.DB)).getAll()
     });
 

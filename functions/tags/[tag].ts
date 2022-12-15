@@ -1,4 +1,4 @@
-import { asHTMLResponse, getCached } from "../helpers/utils";
+import { asHTMLResponse, getCachedData } from "../helpers/utils";
 import { SidebarModifier } from "../helpers/modifiers/SidebarModifier";
 import { PostListModifier } from "../helpers/modifiers/PostListModifier";
 import { TitleModifier } from "../helpers/modifiers/TitleModifier";
@@ -10,7 +10,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     const tag = context.params.tag as string;
     const req = await context.env.ASSETS.fetch(`${new URL(context.request.url).origin}/root`);
     const resp = await asHTMLResponse(req);
-    const posts = await getCached<Array<Post>>(context, "/obj/posts/tags", async () => {
+    const posts = await getCachedData<Array<Post>>(context, "/obj/posts/tags", async () => {
         return await (new Post(context.env.DB)).getByTag(tag);
     });
     return new HTMLRewriter()
